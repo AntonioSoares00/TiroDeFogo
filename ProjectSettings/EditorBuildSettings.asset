@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Personagens.unity
     guid: f680043de2453184dac873359f1f2b0b
   - enabled: 1
+    path: Assets/Scenes/luta.unity
+    guid: 95dfc100206f20f41a8c23d50834b88d
+  - enabled: 1
     path: Assets/Scenes/Creditos.unity
     guid: 5149ec0231451bb4fa7ccaaa72c80d42
   m_configObjects:

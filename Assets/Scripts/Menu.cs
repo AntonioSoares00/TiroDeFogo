@@ -3,25 +3,19 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-
-    [SerializeField] private AudioClip Som;
-    private AudioSource player;
+    private AudioSource player; //Referência ao componente AudioSource
+    [SerializeField] private AudioClip som; //Arquivo (Clip) de áudio a ser reproduzido
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        player = GetComponent<AudioSource>();
+        player = GetComponent<AudioSource>(); //Guarda a referência do AudioSource
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public void Jogar()
     {
-        TocarSom();
-        Invoke("Personagens", 1f);
+        TocarSom(); //Chama a função para tocar o som
+        Invoke("SelecionaPersonagens", 1f); //Chama a função SelecionaPersonagens após 1 segundo
     }
 
     public void Creditos()
@@ -34,11 +28,6 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("MenuPrincipal");
     }
 
-    public void Call()
-    {
-        SceneManager.LoadScene("Call");
-    }
-
     public void PapaMike()
     {
         SceneManager.LoadScene("PapaMike");
@@ -49,20 +38,58 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("Caussang");
     }
 
-    public void Ghost()
+    public void GHOST()
     {
-        SceneManager.LoadScene("Ghost");
+        SceneManager.LoadScene("GHOST");
+    }
+
+    public void Call()
+    {
+        SceneManager.LoadScene("Call");
     }
 
     private void TocarSom()
     {
-        player.PlayOneShot(Som);
+        player.PlayOneShot(som);
     }
 
-    public void Personagens()
+    private void SelecionaPersonagens()
     {
-        SceneManager.LoadScene("Personagens");
+        SceneManager.LoadScene("SelecionaPersonagens");
     }
+
+    public void SairDaFloresta()
+    {
+        TocarSom(); //Chama a função para tocar o som
+        Invoke("EscolhaFloresta", 1f); //Chama a função EscolhaFloresta após 1 segundo
+    }
+
+    private void EscolhaFloresta()
+    {
+        SceneManager.LoadScene("EscolhaFloresta");
+    }
+
+    public void BatalhaDaFlorestaEsquerda()
+    {
+        TocarSom(); //Chama a função para tocar o som
+        Invoke("FlorestaEsquerdaBatalha", 1f); //Chama a função EscolhaFloresta após 1 segundo
+    }
+
+    private void FlorestaEsquerdaBatalha()
+    {
+        SceneManager.LoadScene("FlorestaEsquerdaBatalha");
+    }
+
+    public void FlorestaEsquerda()
+    {
+        SceneManager.LoadScene("FlorestaEsquerda");
+    }
+
+    //Metodo gererico para carregar a cena
+
+    public void CarregarCena(string nomeCena)
+    {
+        SceneManager.LoadScene(nomeCena);
+    }
+
 }
-
-
