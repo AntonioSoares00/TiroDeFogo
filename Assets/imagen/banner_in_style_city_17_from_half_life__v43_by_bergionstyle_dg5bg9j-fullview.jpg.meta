@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9b3d09c170cedb748b97b077061f9092
+guid: e124fbdff1434b948890efebc33d36c8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7902233534601575181
-    second: baixados_0
+      213: -486044802452016970
+    second: banner_in_style_city_17_from_half_life__v43_by_bergionstyle_dg5bg9j-fullview_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: baixados_0
+      name: banner_in_style_city_17_from_half_life__v43_by_bergionstyle_dg5bg9j-fullview_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 312
-        height: 180
+        width: 1920
+        height: 960
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3f4c4e5d770a55290800000000000000
-      internalID: -7902233534601575181
+      spriteID: 6b03cecc3d83149f0800000000000000
+      internalID: -486044802452016970
       vertices: []
       indices: 
       edges: []

@@ -1,7 +1,6 @@
 
 using System.Collections;
 using UnityEngine;
-using static NewMonoBehaviourScript;
 
 public class Player : MonoBehaviour
 {

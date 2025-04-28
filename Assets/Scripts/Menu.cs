@@ -14,8 +14,7 @@ public class Menu : MonoBehaviour
 
     public void Jogar()
     {
-        TocarSom(); //Chama a função para tocar o som
-        Invoke("SelecionaPersonagens", 1f); //Chama a função SelecionaPersonagens após 1 segundo
+        Invoke("Personagens", 1f); //Chama a função SelecionaPersonagens após 1 segundo
     }
 
     public void Creditos()
@@ -33,14 +32,14 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("PapaMike");
     }
 
-    public void Caussang()
-    {
-        SceneManager.LoadScene("Caussang");
-    }
-
     public void GHOST()
     {
         SceneManager.LoadScene("GHOST");
+    }
+
+    public void CAUSSANG()
+    {
+        SceneManager.LoadScene("CAUSSANG");
     }
 
     public void Call()
@@ -51,11 +50,6 @@ public class Menu : MonoBehaviour
     private void TocarSom()
     {
         player.PlayOneShot(som);
-    }
-
-    private void SelecionaPersonagens()
-    {
-        SceneManager.LoadScene("SelecionaPersonagens");
     }
 
     public void SairDaFloresta()

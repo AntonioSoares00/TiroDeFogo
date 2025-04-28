@@ -223,7 +223,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      battlefield_PNG55_0: 1205339686288798288
+      battlefield_PNG55_1: -6675343585869450457
+      battlefield_PNG55_2: 8376411334288986015
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
