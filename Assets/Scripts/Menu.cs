@@ -14,7 +14,7 @@ public class Menu : MonoBehaviour
 
     public void Jogar()
     {
-        Invoke("Personagens", 1f); //Chama a função SelecionaPersonagens após 1 segundo
+        SceneManager.LoadScene("Personagens"); //Chama a função SelecionaPersonagens após 1 segundo
     }
 
     public void Creditos()
