@@ -12,11 +12,23 @@ EditorBuildSettings:
     path: Assets/Scenes/Personagens.unity
     guid: f680043de2453184dac873359f1f2b0b
   - enabled: 1
-    path: Assets/Scenes/luta.unity
-    guid: 95dfc100206f20f41a8c23d50834b88d
-  - enabled: 1
     path: Assets/Scenes/Creditos.unity
     guid: 5149ec0231451bb4fa7ccaaa72c80d42
+  - enabled: 1
+    path: Assets/Scenes/GHOST.unity
+    guid: 81344d3c3d409274f902ed2aaf2e9bbc
+  - enabled: 1
+    path: Assets/Scenes/PapaMike.unity
+    guid: f03f470d2594a894cac6734fc3a9cd29
+  - enabled: 1
+    path: Assets/Scenes/CAUSSANG.unity
+    guid: a244c8d534bab1f46b3294f9137e0a73
+  - enabled: 1
+    path: Assets/Scenes/Call.unity
+    guid: 3a51ece8ae265dd42817bae97ebc4f45
+  - enabled: 1
+    path: Assets/Scenes/Combate.unity
+    guid: 95dfc100206f20f41a8c23d50834b88d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -29,7 +29,7 @@ public class Menu : MonoBehaviour
 
     public void PapaMike()
     {
-        SceneManager.LoadScene("PapaMike");
+        SceneManager.LoadScene("PapaMike");   
     }
 
     public void GHOST()
@@ -42,9 +42,14 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("CAUSSANG");
     }
 
-    public void Call()
+    public void CALL()
     {
         SceneManager.LoadScene("Call");
+    }
+
+    public void combate()
+    {
+        SceneManager.LoadScene("Combate");
     }
 
     private void TocarSom()

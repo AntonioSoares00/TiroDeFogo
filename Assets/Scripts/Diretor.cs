@@ -127,8 +127,8 @@ public class DiretorBatalha : MonoBehaviour
         }
         else if (!player.VerificaVida())
         {
-            player.PlaySomMorte();
-            textoTextoDerrota.SetActive(true);
+            //player.PlaySomMorte();
+            //textoTextoDerrota.SetActive(true);
         }
     }
 
