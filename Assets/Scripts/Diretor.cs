@@ -1,5 +1,7 @@
 using System.Collections;
 using TMPro;
+using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -18,8 +20,12 @@ public class DiretorBatalha : MonoBehaviour
     [SerializeField] GameObject textoTextoDerrota;
     [SerializeField] Button botaoEspecial;
     [SerializeField] Button botaoAtaque;
+    [SerializeField] private int cena;
     string turno = "Player";
     bool verificadorDeTurno = true;
+
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,10 +34,11 @@ public class DiretorBatalha : MonoBehaviour
         vidaInimigo.text = inimigo.GetVida().ToString();
         nomePlayer.text = player.GetNomePersonagem();
         nomeInimigo.text = inimigo.GetNomePersonagem();
-        indicadorEspecial.text = player.ValorEspecial().ToString();
         botaoEspecial.interactable = false;
+
     }
 
+    // Update is called once per frame
     void Update()
     {
         AtualizaDadosTela();
@@ -59,9 +66,14 @@ public class DiretorBatalha : MonoBehaviour
         VerificaVitoria();
     }
 
+    private void AtualizaDadosTela()
+    {
+        vidaPlayer.text = player.GetVida().ToString();
+        vidaInimigo.text = inimigo.GetVida().ToString();
+    }
     public void AtaquePlayer()
     {
-        inimigo.LevarDano(player.Ataque());
+        inimigo.LevarDano(player.Atacar());
         StartCoroutine(AtaqueP());
     }
 
@@ -71,23 +83,10 @@ public class DiretorBatalha : MonoBehaviour
         StartCoroutine(AtaqueP());
     }
 
-    private void AtualizaDadosTela()
-    {
-        vidaPlayer.text = player.GetVida().ToString();
-        vidaInimigo.text = inimigo.GetVida().ToString();
-    }
 
-    public void RecebeTexto(string texto)
-    {
-        StartCoroutine(ExibeTexto(texto));
-    }
 
-    private IEnumerator ExibeTexto(string texto)
-    {
-        informativo.text += texto + "\n";
-        yield return new WaitForSeconds(5f);
-        informativo.text = "";
-    }
+    
+    
 
     private IEnumerator AtaqueInimigo()
     {
@@ -97,7 +96,7 @@ public class DiretorBatalha : MonoBehaviour
         {
             botaoAtaque.interactable = false;
             botaoEspecial.interactable = false;
-            player.LevarDano(inimigo.Ataque());
+            player.LevarDano(inimigo.Atacar());
             yield return new WaitForSeconds(5f);
             verificadorDeTurno = true;
             turno = "Player";
@@ -118,31 +117,42 @@ public class DiretorBatalha : MonoBehaviour
             turno = "Inimigo";
         }
     }
+    public void RecebeTexto(string texto)
+    {
+        StartCoroutine(ExibeTexto(texto));
+    }
+
+    private IEnumerator ExibeTexto(string texto)
+    {
+        informativo.text += texto + "\n";
+        yield return new WaitForSeconds(5f);
+        informativo.text = "";
+    }
 
     public void VerificaVitoria()
     {
-        if (!inimigo.VerificaVida())
+        if (!inimigo.VerificaVida() && cena == 1)
         {
-            StartCoroutine(TelaVitoria());
+            SceneManager.LoadScene("FanalLiderDosBandidos");
         }
-        else if (!player.VerificaVida())
+        else if (!player.VerificaVida() && cena == 1)
         {
-            //player.PlaySomMorte();
-            //textoTextoDerrota.SetActive(true);
+            SceneManager.LoadScene("MortePaladino");
+            /* player.PlaySomMorte();*/
+            textoTextoDerrota.SetActive(true);
         }
-    }
+        else if (!inimigo.VerificaVida() && cena == 2)
+        {
+            SceneManager.LoadScene("Ir atras do Lider dos bandidos");
+        }
+        else if (!player.VerificaVida() && cena == 2)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
 
-    IEnumerator TelaVitoria()
-    {
-        yield return new WaitForSeconds(2.0f);
-        player.PlaySomVitoria();
-        yield return new WaitForSeconds(1.0f);
-        textoTextoVitoria.SetActive(true);
     }
-
     public void ReiniciarJogo()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
-

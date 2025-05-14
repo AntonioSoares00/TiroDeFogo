@@ -285,4 +285,9 @@ public class Player : MonoBehaviour
         audioSource.PlayOneShot(somVitoria);
         camera.GetComponent<CameraShake>().ShakeCamera(0.5f, magnitude);
     }
+
+    internal int Atacar()
+    {
+        throw new System.NotImplementedException();
+    }
 }
