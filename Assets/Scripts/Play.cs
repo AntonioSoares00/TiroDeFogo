@@ -1,5 +1,5 @@
-
 using System.Collections;
+using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -13,8 +13,8 @@ public class Player : MonoBehaviour
     [SerializeField] private DiretorBatalha dB;
     [SerializeField] private Sprite spriteDerrota;
     [SerializeField] private bool ehHeroi;
-    [SerializeField] private GameObject pDesefa;
-    [SerializeField] private GameObject pSangrar;
+    //[SerializeField] private GameObject pDesefa;
+    //[SerializeField] private GameObject pSangrar;
     [SerializeField] private AudioClip[] somAtaque;
     [SerializeField] private AudioClip[] somDefesa;
     [SerializeField] private AudioClip[] somEspecial;
@@ -25,16 +25,19 @@ public class Player : MonoBehaviour
     [SerializeField] private AudioClip somEspecialPronto;
     [SerializeField] private Camera camera;
 
-    private Animator anim;
+    //private Animator anim;
     private SpriteRenderer spriteRenderer;
     private AudioSource audioSource;
 
     private void Start()
     {
-        anim = GetComponent<Animator>();
+        //anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
+
+
     }
+
 
     public string GetNomePersonagem()
     {
@@ -80,6 +83,7 @@ public class Player : MonoBehaviour
 
         if (valorAtaque > 0)
         {
+
             dB.RecebeTexto("ARgh! Sinta Minha Furia!");
             dB.RecebeTexto($"{nomePersonagem} ataca com {valorAtaque}");
             PlaySomAtaque();
@@ -185,11 +189,11 @@ public class Player : MonoBehaviour
     {
         if (ehHeroi)
         {
-            anim.SetTrigger("AtaqueInimigo");
+            // anim.SetTrigger("AtaqueInimigo");
         }
         else
         {
-            anim.SetTrigger("AtaqueHeroi");
+            // anim.SetTrigger("AtaqueHeroi");
         }
     }
 
@@ -201,12 +205,12 @@ public class Player : MonoBehaviour
 
     private void ParticulaDefesa()
     {
-        pDesefa.GetComponent<ParticleSystem>().Play();
+        //pDesefa.GetComponent<ParticleSystem>().Play();
     }
 
     private void ParticulaSangrar()
     {
-        pSangrar.GetComponent<ParticleSystem>().Play();
+        //pSangrar.GetComponent<ParticleSystem>().Play();
     }
 
     private void PlaySomAtaque()
@@ -245,7 +249,7 @@ public class Player : MonoBehaviour
     IEnumerator TocarDefesa()
     {
         dB.RecebeTexto($"{nomePersonagem} consegue se defender!");
-        anim.SetTrigger("Defesa");
+        // anim.SetTrigger("Defesa");
         yield return new WaitForSeconds(0.5f);
         PlaySomDefesa();
         ParticulaDefesa();
@@ -254,7 +258,7 @@ public class Player : MonoBehaviour
     IEnumerator TocarDanoNormal(int danoFinal)
     {
         dB.RecebeTexto($"{nomePersonagem} leva dano de {danoFinal}.");
-        anim.SetTrigger("Dano");
+        // anim.SetTrigger("Dano");
         yield return new WaitForSeconds(0.5f);
         PlaySomDano();
         ParticulaSangrar();
@@ -265,9 +269,8 @@ public class Player : MonoBehaviour
     IEnumerator TocarDanoMaximo(int danoFinal)
     {
         dB.RecebeTexto($"{nomePersonagem} toma uma porrada de {danoFinal}.");
-        anim.SetTrigger("Dano");
+        //  anim.SetTrigger("Dano");
         yield return new WaitForSeconds(0.5f);
-        CameraTreme(danoFinal * 0.1f);
         PlaySomDano();
         ParticulaSangrar();
         vida -= danoFinal;
@@ -280,14 +283,4 @@ public class Player : MonoBehaviour
         audioSource.PlayOneShot(somVitoria);
     }
 
-    private void CameraTreme(float magnitude)
-    {
-        audioSource.PlayOneShot(somVitoria);
-        camera.GetComponent<CameraShake>().ShakeCamera(0.5f, magnitude);
-    }
-
-    internal int Atacar()
-    {
-        throw new System.NotImplementedException();
-    }
 }
